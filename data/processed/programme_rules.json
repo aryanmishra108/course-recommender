@@ -1,0 +1,53 @@
+{
+  "B.E. Computer Science": {
+    "campus": "Pilani",
+    "bulletin_year": "2025-26",
+    "foundation_courses": [
+      "BITS F103",
+      "BIO F101",
+      "CHEM F101",
+      "MATH F101",
+      "PHY F101",
+      "BITS F101",
+      "BITS K101",
+      "BITS F111",
+      "BITS F112",
+      "CS F111",
+      "MATH F113",
+      "MATH F102",
+      "EEE F111",
+      "BITS F102",
+      "MATH F211",
+      "BITS F225"
+    ],
+    "core_courses": [
+      "CS F211",
+      "CS F212",
+      "CS F213",
+      "CS F214",
+      "CS F215",
+      "CS F222",
+      "CS F241",
+      "CS F301",
+      "CS F303",
+      "CS F342",
+      "CS F351",
+      "CS F363",
+      "CS F364",
+      "CS F372"
+    ],
+    "core_units": 48,
+    "discipline_elective_units": 12,
+    "huel_courses_required": 3,
+    "huel_units_required": 8,
+    "semester_pattern_source": {
+      "document": "bulletin.pdf",
+      "page": 217
+    }
+  },
+  "global_registration": {
+    "first_degree_max_units": 25,
+    "summer_max_courses": 3,
+    "summer_max_units": 10
+  }
+}

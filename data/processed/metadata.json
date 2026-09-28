@@ -1,0 +1,12 @@
+{
+  "sources": [
+    "timetable.pdf",
+    "bulletin.pdf",
+    "Academic-Regulations-2023.pdf"
+  ],
+  "part_ii_handouts_processed": true,
+  "note": "Course-specific properties are only populated when supported by a Part II handout; otherwise they remain unverified.",
+  "handout_files_processed": 540,
+  "unique_handout_course_codes": 458,
+  "handout_errors": 0
+}
