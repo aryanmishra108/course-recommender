@@ -1,6 +1,6 @@
-# BITS Academic Course Recommender — Postman Round 2
+# BITS Academic Course Recommender: Postman Round 2
 
-A Streamlit MVP implementing the requirement-first course recommendation flow from the supplied Postman brief, using the BITS Bulletin, timetable, Academic Regulations, and the supplied Part II course handouts.
+A Streamlit MVP implementing the requirement-first course recommendation flow from the supplied Postman brief, using the BITS Bulletin, timetable, Academic Regulations, and the course handouts.
 
 ## Core flow
 
@@ -21,7 +21,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-**You do not need to run preprocessing to use the included dataset.**
 
 ## Rebuild the dataset from the 540-handout ZIP
 
