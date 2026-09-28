@@ -4,19 +4,16 @@ from pathlib import Path
 import streamlit as st
 
 
-# -------------------------------------------------------------------
-# Project imports
-# -------------------------------------------------------------------
 
+# Project imports
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.agents import AcademicAgent
 
 
-# -------------------------------------------------------------------
+
 # Streamlit configuration
-# -------------------------------------------------------------------
 
 st.set_page_config(
     page_title="Postman: BITS Academic Course Recommender",
@@ -24,9 +21,8 @@ st.set_page_config(
 )
 
 
-# -------------------------------------------------------------------
+
 # Academic agent
-# -------------------------------------------------------------------
 
 @st.cache_resource
 def get_agent():
@@ -37,17 +33,16 @@ a = get_agent()
 r = a.r
 
 
-# -------------------------------------------------------------------
+
 # Page header
-# -------------------------------------------------------------------
+
 
 st.title("Postman: BITS Academic Course Recommender")
 st.caption("Get to know which courses satisfy your wants and your academic requirements")
 
 
-# -------------------------------------------------------------------
+
 # Student profile
-# -------------------------------------------------------------------
 
 with st.sidebar:
     st.header("Student profile")
@@ -91,9 +86,9 @@ with st.sidebar:
     )
 
 
-# -------------------------------------------------------------------
+
 # Student profile object
-# -------------------------------------------------------------------
+
 
 profile = {
     "campus": campus,
@@ -114,9 +109,7 @@ profile = {
 }
 
 
-# -------------------------------------------------------------------
 # Academic requirement analysis
-# -------------------------------------------------------------------
 
 academic_state = r.academic_state(profile)
 
@@ -161,9 +154,9 @@ with st.expander("Academic requirement analysis", expanded=True):
     )
 
 
-# -------------------------------------------------------------------
+
 # Course recommendation
-# -------------------------------------------------------------------
+
 
 st.subheader("Ask the recommender")
 
@@ -184,9 +177,9 @@ if st.button(
         query,
     )
 
-    # ---------------------------------------------------------------
+  
     # Recommended courses
-    # ---------------------------------------------------------------
+  
 
     if not results:
         st.warning(
@@ -205,9 +198,9 @@ if st.button(
                 f'{course["title"].title()}'
             )
 
-            # -------------------------------------------------------
+            
             # Human-readable eligibility
-            # -------------------------------------------------------
+            
 
             eligibility_labels = {
                 "eligible": "✓ Eligible",
@@ -227,9 +220,9 @@ if st.button(
                 f'**Match:** {result["score"]}'
             )
 
-            # -------------------------------------------------------
+            
             # Description
-            # -------------------------------------------------------
+            
 
             if course.get("description"):
                 description = course["description"]
@@ -239,19 +232,17 @@ if st.button(
 
                 st.write(description)
 
-            # -------------------------------------------------------
+            
             # Matching / verification reasons
-            # -------------------------------------------------------
-
+            
             reasons = result.get("reasons", [])
 
             if reasons:
                 st.caption(" · ".join(reasons))
 
-            # -------------------------------------------------------
+            
             # Assessment information
-            # -------------------------------------------------------
-
+            
             st.write(
                 f'**Midsem:** '
                 f'{course.get("midsem", "not recorded")} '
@@ -259,9 +250,9 @@ if st.button(
                 f'{course.get("compre", "not recorded")}'
             )
 
-            # -------------------------------------------------------
+            
             # Instructor
-            # -------------------------------------------------------
+            
 
             if course.get("instructor_handout"):
                 st.write(
@@ -269,9 +260,8 @@ if st.button(
                     course["instructor_handout"],
                 )
 
-            # -------------------------------------------------------
-            # Attendance
-            # -------------------------------------------------------
+          # Attendance
+
 
             if course.get("attendance_policy"):
                 attendance = course["attendance_policy"]
@@ -283,9 +273,9 @@ if st.button(
                     "**Attendance:** " + attendance
                 )
 
-            # -------------------------------------------------------
+
             # Evaluation
-            # -------------------------------------------------------
+
 
             if course.get("evaluation_scheme_raw"):
                 evaluation = course["evaluation_scheme_raw"]
@@ -297,9 +287,9 @@ if st.button(
                     "**Evaluation:** " + evaluation
                 )
 
-            # -------------------------------------------------------
+
             # Make-up policy
-            # -------------------------------------------------------
+
 
             if course.get("makeup_policy"):
                 makeup = course["makeup_policy"]
@@ -311,9 +301,9 @@ if st.button(
                     "**Make-up:** " + makeup
                 )
 
-            # -------------------------------------------------------
+
             # Source handout
-            # -------------------------------------------------------
+
 
             if course.get("handout_source_files"):
                 st.caption(
@@ -321,9 +311,9 @@ if st.button(
                     + ", ".join(course["handout_source_files"])
                 )
 
-    # ----------------------------------------------------------------
+
     # Schedule result
-    # ----------------------------------------------------------------
+
 
     if schedule_found:
         st.success(
@@ -336,9 +326,9 @@ if st.button(
             "was found for the displayed set."
         )
 
-    # ----------------------------------------------------------------
-    # Agent trace
-    # ----------------------------------------------------------------
+
+   # Agent trace
+
 
     with st.expander("Agent trace"):
 
@@ -349,9 +339,9 @@ if st.button(
             )
 
 
-# -------------------------------------------------------------------
+
 # Course explorer
-# -------------------------------------------------------------------
+
 
 st.subheader("Course explorer")
 
@@ -396,9 +386,9 @@ if search:
     )
 
 
-# -------------------------------------------------------------------
+
 # Data provenance
-# -------------------------------------------------------------------
+
 
 with st.expander("Verification / data provenance"):
 
